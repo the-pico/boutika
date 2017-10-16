@@ -1,0 +1,11 @@
+com\oby\autumn\boutika\config\LoggerConfig.class
+com\oby\autumn\boutika\logger\ObyLogLevel$1.class
+com\oby\autumn\boutika\logger\ObyLogLevel.class
+com\oby\autumn\boutika\logger\Autolog.class
+com\oby\autumn\boutika\logger\ObyLog4j.class
+com\oby\autumn\boutika\logger\ObyLogFactory.class
+com\oby\autumn\boutika\logger\IObyLogger.class
+com\oby\autumn\boutika\logger\NoAutolog.class
+com\oby\autumn\boutika\config\DataConfig.class
+com\oby\autumn\boutika\logger\AutologAspect.class
+com\oby\autumn\boutika\logger\StaticSpringContextProvider.class
