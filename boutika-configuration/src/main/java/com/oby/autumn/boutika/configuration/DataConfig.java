@@ -1,4 +1,4 @@
-package com.oby.autumn.boutika.config;
+package com.oby.autumn.boutika.configuration;
 
 import java.util.Properties;
 

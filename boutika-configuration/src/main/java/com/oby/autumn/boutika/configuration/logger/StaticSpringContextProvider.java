@@ -1,4 +1,4 @@
-package com.oby.autumn.boutika.logger;
+package com.oby.autumn.boutika.configuration.logger;
 
 
 import org.springframework.beans.BeansException;

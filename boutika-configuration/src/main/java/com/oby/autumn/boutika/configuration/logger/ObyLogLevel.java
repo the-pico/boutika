@@ -1,4 +1,4 @@
-package com.oby.autumn.boutika.logger;
+package com.oby.autumn.boutika.configuration.logger;
 
 import org.apache.log4j.Level;
 

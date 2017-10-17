@@ -1,2 +1,5 @@
-com\oby\autumn\boutika\entities\Hello.class
-com\oby\autumn\boutika\repositories\HelloRepository.class
+com\oby\autumn\boutika\model\repositories\BasicEntityRepository.class
+com\oby\autumn\boutika\model\entities\BasicEntity$1.class
+com\oby\autumn\boutika\model\entities\BasicEntity.class
+com\oby\autumn\boutika\model\repositories\HelloRepository.class
+com\oby\autumn\boutika\model\entities\Hello.class

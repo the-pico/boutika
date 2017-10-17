@@ -1,2 +1,4 @@
-com\oby\autumn\boutika\dto\HelloDTO.class
-com\oby\autumn\boutika\service\HelloService.class
+com\oby\autumn\boutika\common\dto\HelloDTO.class
+com\oby\autumn\boutika\common\service\HelloService.class
+com\oby\autumn\boutika\common\dto\BasicDto.class
+com\oby\autumn\boutika\common\service\BasicEntityService.class

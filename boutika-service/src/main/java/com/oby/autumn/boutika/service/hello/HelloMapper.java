@@ -2,8 +2,8 @@ package com.oby.autumn.boutika.service.hello;
 
 import java.util.function.Function;
 
-import com.oby.autumn.boutika.dto.HelloDTO;
-import com.oby.autumn.boutika.entities.Hello;
+import com.oby.autumn.boutika.common.dto.HelloDTO;
+import com.oby.autumn.boutika.model.entities.Hello;
 
 public class HelloMapper {
 

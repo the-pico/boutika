@@ -1,11 +1,11 @@
-package com.oby.autumn.boutika.dto;
+package com.oby.autumn.boutika.common.dto;
 
 import java.io.Serializable;
 
-import com.oby.autumn.boutika.logger.Autolog;
+import com.oby.autumn.boutika.configuration.logger.Autolog;
 
 @Autolog
-public class HelloDTO implements Serializable{
+public class HelloDTO extends BasicDto implements Serializable{
 
 	/**
 	 * 

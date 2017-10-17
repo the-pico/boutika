@@ -1,11 +1,13 @@
-package com.oby.autumn.boutika.logger;
+package com.oby.autumn.boutika.configuration.logger;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
 @Aspect
+@Component
 public class AutologAspect {
 
 	/**
@@ -36,7 +38,7 @@ public class AutologAspect {
 	 * Point de jointure avec les bean annotés par autolog
 	 * On prend donc en compte les classes annotées @Autolog
 	 */
-	@Pointcut("within(@com.oby.autumn.boutika.logger.Autolog *)")
+	@Pointcut("within(@com.oby.autumn.boutika.configuration.logger.Autolog *)")
 	public void beanAnnotatedAutolog() {
 	}
 
@@ -69,7 +71,7 @@ public class AutologAspect {
 	 * Point de jointure avec les methodes annotées @Autolog
 	 * On prend aussi en compte les méthodes annotées @Autolog
 	 */
-	@Pointcut("@annotation(com.oby.autumn.boutika.logger.Autolog)")
+	@Pointcut("@annotation(com.oby.autumn.boutika.configuration.logger.Autolog)")
 	public void methodAnnotedAutoLog() {
 	}
 
@@ -91,7 +93,7 @@ public class AutologAspect {
 	 * @return L'objet initialement retourné par le joinPoint
 	 * @throws Throwable
 	 */
-	@Around("!constructorMethod() && !@annotation(com.oby.autumn.boutika.logger.NoAutolog) && ( methodAnnotedAutoLog() || publicAndProtectedMethodInsideAutoLogBean() )")
+	@Around("!constructorMethod() && !@annotation(com.oby.autumn.boutika.configuration.logger.NoAutolog) && ( methodAnnotedAutoLog() || publicAndProtectedMethodInsideAutoLogBean() )")
 	public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
 		
 		//Objet de gestion des log avec le sender de la log précisé dans le constructeur

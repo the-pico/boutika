@@ -1,4 +1,4 @@
-package com.oby.autumn.boutika.config;
+package com.oby.autumn.boutika.configuration;
 
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -7,6 +7,11 @@ import org.apache.log4j.PropertyConfigurator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
+
+import com.oby.autumn.boutika.configuration.logger.IObyLogger;
+import com.oby.autumn.boutika.configuration.logger.ObyLog4j;
+import com.oby.autumn.boutika.configuration.logger.StaticSpringContextProvider;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -14,12 +19,8 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
-import com.oby.autumn.boutika.logger.IObyLogger;
-import com.oby.autumn.boutika.logger.ObyLog4j;
-import com.oby.autumn.boutika.logger.StaticSpringContextProvider;
-
 @Configuration
-//@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy
 @ComponentScan(basePackages = { "com.oby.autumn.boutika" }, excludeFilters = {
 		@Filter(type = FilterType.ANNOTATION, value = Configuration.class) })
 public class LoggerConfig {

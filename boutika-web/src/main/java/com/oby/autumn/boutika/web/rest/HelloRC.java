@@ -1,4 +1,4 @@
-package com.oby.autumn.boutika.rest;
+package com.oby.autumn.boutika.web.rest;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oby.autumn.boutika.dto.HelloDTO;
-import com.oby.autumn.boutika.logger.Autolog;
-import com.oby.autumn.boutika.service.HelloService;
+import com.oby.autumn.boutika.common.dto.HelloDTO;
+import com.oby.autumn.boutika.common.service.HelloService;
+import com.oby.autumn.boutika.configuration.logger.Autolog;
 
 @RestController
 @Autolog

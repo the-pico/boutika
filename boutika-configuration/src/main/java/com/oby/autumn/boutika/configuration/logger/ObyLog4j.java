@@ -1,4 +1,4 @@
-package com.oby.autumn.boutika.logger;
+package com.oby.autumn.boutika.configuration.logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;

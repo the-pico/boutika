@@ -1,4 +1,4 @@
-package com.oby.autumn.boutika.config;
+package com.oby.autumn.boutika.web.configuration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

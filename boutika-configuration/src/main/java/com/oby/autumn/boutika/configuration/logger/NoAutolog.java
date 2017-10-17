@@ -1,4 +1,4 @@
-package com.oby.autumn.boutika.logger;
+package com.oby.autumn.boutika.configuration.logger;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
