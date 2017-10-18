@@ -1,12 +1,18 @@
 package com.oby.autumn.boutika.service.hello;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.collect.Sets;
 import com.oby.autumn.boutika.common.dto.HelloDTO;
 import com.oby.autumn.boutika.common.service.HelloService;
 import com.oby.autumn.boutika.configuration.logger.Autolog;
 import com.oby.autumn.boutika.configuration.logger.IObyLogger;
+import com.oby.autumn.boutika.configuration.pagedList.PageRequest;
+import com.oby.autumn.boutika.configuration.pagedList.PagedList;
 import com.oby.autumn.boutika.model.entities.Hello;
 import com.oby.autumn.boutika.model.repositories.HelloRepository;
 
@@ -16,13 +22,13 @@ public class HelloServiceImpl extends BasicEntityServiceImpl<HelloDTO, Hello> im
 
 	@Autowired
 	private HelloRepository helloRepository;
-	
+
 	@Autowired
 	private IObyLogger obyLog4j;
 
 	public void createHello(HelloDTO helloDTO) {
-		
-		obyLog4j.info("new hello %s ",helloDTO);
+
+		obyLog4j.info("new hello %s ", helloDTO);
 		helloRepository.save(HelloMapper.DtoToEntity.apply(helloDTO));
 
 	}
@@ -30,9 +36,40 @@ public class HelloServiceImpl extends BasicEntityServiceImpl<HelloDTO, Hello> im
 	public HelloDTO findHello(Long id) {
 
 		return HelloMapper.EntityToDto.apply(helloRepository.findById(id).get());
-		
+
 	}
 
+	@Override
+	public void create(HelloDTO t) {
+		helloRepository.save(HelloMapper.DtoToEntity.apply(t));
+	}
 
+	@Override
+	public void update(HelloDTO t) {
+		helloRepository.save(HelloMapper.DtoToEntity.apply(t));
+
+	}
+
+	@Override
+	public void delete(HelloDTO t) {
+		helloRepository.delete(HelloMapper.DtoToEntity.apply(t));
+	}
+
+	@Override
+	public HelloDTO findOne(Long arg) {
+		return HelloMapper.EntityToDto.apply(helloRepository.findById(arg).get());
+	}
+
+	@Override
+	public Set<HelloDTO> findAll() {
+		Set<Hello> list = Sets.newHashSet(helloRepository.findAll());
+		return list.stream().map(HelloMapper.EntityToDto).collect(Collectors.toSet());
+	}
+
+	@Override
+	public PagedList getPagedList(PageRequest pageRequest) {
+
+		return null;
+	}
 
 }

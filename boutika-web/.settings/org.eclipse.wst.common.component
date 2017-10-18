@@ -12,10 +12,13 @@
         <dependent-module archiveName="boutika-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boutika-common/boutika-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="boutika-model-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boutika-model/boutika-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="boutika-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boutika-service/boutika-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="boutika-model-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boutika-model/boutika-model">
+        <dependent-module archiveName="boutika-initdata.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boutika-initdata/boutika-initdata">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="boutika-web"/>

@@ -3,6 +3,7 @@
 	<name>boutika-web</name>
 	<comment></comment>
 	<projects>
+		<project>boutika-initdata</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
