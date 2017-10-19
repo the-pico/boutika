@@ -1,5 +1,6 @@
 package com.oby.autumn.boutika.initdata.dataset;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +23,8 @@ public abstract class AbstractDataSet implements Dataset {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public <T extends BasicEntity> void save(T entity, String instanceName) {
+		entity.setCreatedBy("InitData");
+		entity.setCreatedOn(new Date());
 		((BasicEntityRepository<T>) this.basicEntityRepository).save(entity);
 		if (instanceName != null) {
 			final Map<String, BasicEntity> entityMap = getEntityMapByBuilderClass(

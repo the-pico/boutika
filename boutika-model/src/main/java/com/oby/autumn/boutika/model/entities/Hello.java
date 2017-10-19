@@ -1,13 +1,39 @@
 package com.oby.autumn.boutika.model.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Hello extends BasicEntity {
 
 	@Column
 	private String message;
+
+	@Column
+	private Double price;
+
+	@Column
+	private Long quantity;
+
+	@Column
+	private int done;
+
+	@Column
+	private Boolean active;
+
+	@ManyToOne
+	@JoinColumn(name = "hello_home_id")
+	private HelloHome helloHome;
+
+	@ManyToMany()
+	@JoinTable(name = "meeting", joinColumns = @JoinColumn(name = "hello_id"), inverseJoinColumns = @JoinColumn(name = "helloer_id"))
+	private Set<Helloer> helloers;
 
 	public String getMessage() {
 		return message;
@@ -45,6 +71,54 @@ public class Hello extends BasicEntity {
 			return false;
 		}
 		return true;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getDone() {
+		return done;
+	}
+
+	public void setDone(int done) {
+		this.done = done;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+	public HelloHome getHelloHome() {
+		return helloHome;
+	}
+
+	public void setHelloHome(HelloHome helloHome) {
+		this.helloHome = helloHome;
+	}
+
+	public Set<Helloer> getHelloers() {
+		return helloers;
+	}
+
+	public void setHelloers(Set<Helloer> helloers) {
+		this.helloers = helloers;
 	}
 
 }

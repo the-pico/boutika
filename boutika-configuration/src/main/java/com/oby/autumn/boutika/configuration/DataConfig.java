@@ -62,10 +62,10 @@ public class DataConfig {
 	private Properties additionalProperties() {
 		final Properties properties = new Properties();
 
-		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.show_sql", "false");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-		properties.setProperty("hibernate.format_sql", "true");
+		properties.setProperty("hibernate.format_sql", "false");
 		properties.setProperty("hibernate.cache.use_query_cache", "false");
 		properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults", "false");
 		properties.setProperty("hibernate.hbm2ddl.auto", "create");

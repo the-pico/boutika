@@ -15,6 +15,7 @@ import com.oby.autumn.boutika.configuration.pagedList.PageRequest;
 import com.oby.autumn.boutika.configuration.pagedList.PagedList;
 import com.oby.autumn.boutika.model.entities.Hello;
 import com.oby.autumn.boutika.model.repositories.HelloRepository;
+import com.oby.autumn.boutika.service.pagedList.HelloPagedListBuilder;
 
 @Service
 @Autolog
@@ -28,7 +29,7 @@ public class HelloServiceImpl extends BasicEntityServiceImpl<HelloDTO, Hello> im
 
 	public void createHello(HelloDTO helloDTO) {
 
-		obyLog4j.info("new hello %s ", helloDTO);
+		
 		helloRepository.save(HelloMapper.DtoToEntity.apply(helloDTO));
 
 	}
@@ -41,6 +42,8 @@ public class HelloServiceImpl extends BasicEntityServiceImpl<HelloDTO, Hello> im
 
 	@Override
 	public void create(HelloDTO t) {
+		HelloPagedListBuilder helloPagedListBuilder = new HelloPagedListBuilder();
+		helloPagedListBuilder.buildPagedList(new PageRequest(), Hello.class);
 		helloRepository.save(HelloMapper.DtoToEntity.apply(t));
 	}
 

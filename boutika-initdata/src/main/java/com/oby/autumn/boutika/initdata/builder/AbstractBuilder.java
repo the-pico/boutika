@@ -1,5 +1,10 @@
 package com.oby.autumn.boutika.initdata.builder;
 
+import java.lang.reflect.Field;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.google.common.collect.Lists;
 import com.oby.autumn.boutika.initdata.dataset.Dataset;
 import com.oby.autumn.boutika.model.entities.BasicEntity;
 
@@ -13,7 +18,28 @@ public abstract class AbstractBuilder<T extends BasicEntity> {
 	
 	protected Class<T> type;
 
-	protected abstract void builder2Entity();
+	protected void builder2Entity() {
+
+		Map<String, Field> entityFields = Lists.newArrayList(entity.getClass().getDeclaredFields()).stream()
+				.collect(Collectors.toMap(field -> field.getName(), field -> field));
+		
+		entityFields.forEach((s, field) -> field.setAccessible(true));
+
+		Lists.newArrayList(this.getClass().getDeclaredFields()).forEach((field) -> {
+			field.setAccessible(true);
+			try {
+				entityFields.get(field.getName()).set(entity, field.get(this));
+			} catch (SecurityException e) {
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+
+		});
+
+	}
 
 	protected AbstractBuilder() {
 	}
