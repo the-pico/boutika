@@ -30,4 +30,11 @@ public class HelloRC {
 		helloService.findAll();
 		return helloService.findOne(id);
 	}
+	
+	
+	@RequestMapping(value = "/hello/id/{id}")
+	public HelloDTO hello(@PathVariable Long id) {
+
+		return helloService.findOne(id);
+	}
 }

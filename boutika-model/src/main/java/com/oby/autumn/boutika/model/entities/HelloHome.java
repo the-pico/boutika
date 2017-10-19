@@ -5,16 +5,16 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.oby.autumn.boutika.configuration.IgnoreMapping;
+
 @Entity
-public class HelloHome extends BasicEntity{
-	
-	
+public class HelloHome extends BasicEntity {
+
 	private String address;
-	
-	
-	@OneToMany(mappedBy="helloHome")
+
+	@IgnoreMapping
+	@OneToMany(mappedBy = "helloHome")
 	private Set<Hello> hellos;
-	
 
 	@Override
 	public int hashCode() {
@@ -61,7 +61,5 @@ public class HelloHome extends BasicEntity{
 	public void setHellos(Set<Hello> hellos) {
 		this.hellos = hellos;
 	}
-	
-	
 
 }

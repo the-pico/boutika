@@ -2,26 +2,72 @@ package com.oby.autumn.boutika.common.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+
+import com.oby.autumn.boutika.configuration.IgnoreMapping;
 import com.oby.autumn.boutika.configuration.logger.Autolog;
 
 @Autolog
-public class HelloDTO extends BasicDto implements Serializable{
+public class HelloDTO extends BasicDto implements Serializable {
 
 	/**
 	 * 
 	 */
+	@IgnoreMapping
 	private static final long serialVersionUID = -1624511343577738711L;
 
-	private Long id;
 
 	private String message;
 
-	public Long getId() {
-		return id;
+	private Double price;
+
+	private Long quantity;
+
+	private int done;
+
+	private Boolean active;
+	
+	private HelloHomeDTO helloHome;
+	
+	
+	public HelloHomeDTO getHelloHome() {
+		return helloHome;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setHelloHome(HelloHomeDTO helloHome) {
+		this.helloHome = helloHome;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getDone() {
+		return done;
+	}
+
+	public void setDone(int done) {
+		this.done = done;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	public String getMessage() {
@@ -31,10 +77,5 @@ public class HelloDTO extends BasicDto implements Serializable{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
-
-	
-	
-	
 
 }

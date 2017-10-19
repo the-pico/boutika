@@ -16,10 +16,10 @@ import com.google.common.collect.Collections2;
 
 @MappedSuperclass
 public abstract class BasicEntity {
-	private String createdBy;
-	private Date updatedOn;
-	private String updatedBy;
-	private Date createdOn;
+	protected String createdBy;
+	protected Date updatedOn;
+	protected String updatedBy;
+	protected Date createdOn;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ID")

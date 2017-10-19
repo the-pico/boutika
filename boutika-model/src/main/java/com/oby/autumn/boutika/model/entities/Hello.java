@@ -9,6 +9,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.oby.autumn.boutika.configuration.IgnoreMapping;
+
 @Entity
 public class Hello extends BasicEntity {
 
@@ -31,6 +33,7 @@ public class Hello extends BasicEntity {
 	@JoinColumn(name = "hello_home_id")
 	private HelloHome helloHome;
 
+	@IgnoreMapping
 	@ManyToMany()
 	@JoinTable(name = "meeting", joinColumns = @JoinColumn(name = "hello_id"), inverseJoinColumns = @JoinColumn(name = "helloer_id"))
 	private Set<Helloer> helloers;

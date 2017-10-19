@@ -29,7 +29,6 @@ public class HelloServiceImpl extends BasicEntityServiceImpl<HelloDTO, Hello> im
 
 	public void createHello(HelloDTO helloDTO) {
 
-		
 		helloRepository.save(HelloMapper.DtoToEntity.apply(helloDTO));
 
 	}
@@ -42,8 +41,10 @@ public class HelloServiceImpl extends BasicEntityServiceImpl<HelloDTO, Hello> im
 
 	@Override
 	public void create(HelloDTO t) {
-		HelloPagedListBuilder helloPagedListBuilder = new HelloPagedListBuilder();
-		helloPagedListBuilder.buildPagedList(new PageRequest(), Hello.class);
+		ObyMapper obyMapper = new ObyMapper();
+		obyMapper.dto2Entity(Hello.class, t);
+		// HelloPagedListBuilder helloPagedListBuilder = new HelloPagedListBuilder();
+		// helloPagedListBuilder.buildPagedList(new PageRequest(), Hello.class);
 		helloRepository.save(HelloMapper.DtoToEntity.apply(t));
 	}
 
@@ -60,7 +61,9 @@ public class HelloServiceImpl extends BasicEntityServiceImpl<HelloDTO, Hello> im
 
 	@Override
 	public HelloDTO findOne(Long arg) {
-		return HelloMapper.EntityToDto.apply(helloRepository.findById(arg).get());
+		ObyMapper obyMapper = new ObyMapper();
+		return obyMapper.entity2Dto(HelloDTO.class, helloRepository.findById(arg).get());
+		// return HelloMapper.EntityToDto.apply(helloRepository.findById(arg).get());
 	}
 
 	@Override

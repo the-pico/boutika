@@ -9,11 +9,11 @@
 	<artifactId>boutika-model</artifactId>
 
 	<dependencies>
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.oby.autumn</groupId>
 			<artifactId>boutika-configuration</artifactId>
 			<version>${version}</version>
-		</dependency> -->
+		</dependency>
 	</dependencies>
 
 
