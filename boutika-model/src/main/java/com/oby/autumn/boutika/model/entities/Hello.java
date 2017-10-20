@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -33,8 +34,7 @@ public class Hello extends BasicEntity {
 	@JoinColumn(name = "hello_home_id")
 	private HelloHome helloHome;
 
-	@IgnoreMapping
-	@ManyToMany()
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "meeting", joinColumns = @JoinColumn(name = "hello_id"), inverseJoinColumns = @JoinColumn(name = "helloer_id"))
 	private Set<Helloer> helloers;
 

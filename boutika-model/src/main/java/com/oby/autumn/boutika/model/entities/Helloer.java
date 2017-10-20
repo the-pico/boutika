@@ -1,10 +1,15 @@
 package com.oby.autumn.boutika.model.entities;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+
+import com.oby.autumn.boutika.configuration.IgnoreMapping;
 
 @Entity
 public class Helloer extends BasicEntity {
@@ -15,8 +20,12 @@ public class Helloer extends BasicEntity {
 	@Column
 	private String email;
 
+	@IgnoreMapping
 	@ManyToMany(mappedBy = "helloers")
 	private Set<Hello> hellos;
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> attributes;
 
 	@Override
 	public int hashCode() {
@@ -70,6 +79,14 @@ public class Helloer extends BasicEntity {
 
 	public void setHellos(Set<Hello> hellos) {
 		this.hellos = hellos;
+	}
+
+	public List<String> getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(List<String> attributes) {
+		this.attributes = attributes;
 	}
 
 }

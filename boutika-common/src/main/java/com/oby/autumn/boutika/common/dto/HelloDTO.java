@@ -1,8 +1,7 @@
 package com.oby.autumn.boutika.common.dto;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
+import java.util.Set;
 
 import com.oby.autumn.boutika.configuration.IgnoreMapping;
 import com.oby.autumn.boutika.configuration.logger.Autolog;
@@ -28,6 +27,8 @@ public class HelloDTO extends BasicDto implements Serializable {
 	private Boolean active;
 	
 	private HelloHomeDTO helloHome;
+	
+	private Set<HelloerDTO> helloers;
 	
 	
 	public HelloHomeDTO getHelloHome() {
@@ -77,5 +78,15 @@ public class HelloDTO extends BasicDto implements Serializable {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+	public Set<HelloerDTO> getHelloers() {
+		return helloers;
+	}
+
+	public void setHelloers(Set<HelloerDTO> helloers) {
+		this.helloers = helloers;
+	}
+	
+	
 
 }

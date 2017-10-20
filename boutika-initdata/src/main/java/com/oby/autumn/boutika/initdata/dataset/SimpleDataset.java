@@ -16,7 +16,8 @@ public class SimpleDataset extends AbstractDataSet {
 	public void defineDataset() {
 		createHelloHome("myHome").address("this adress is my adress").build();
 
-		createHelloer("helloerOmar").name("omar").email("azeze@email.com").build();
+		createHelloer("helloerOmar").name("omar").email("azeze@email.com").addAttribute("koko").addAttribute("bobo")
+				.addAttribute("soso").build();
 		createHelloer("helloerZakia").name("zakia").email("azeze@email.com").build();
 		createHelloer("helloerWadie").name("wadie").email("azeze@email.com").build();
 
